@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from './Components/Header';
-import { MainVideo } from './Components/Main';
+import { MainVideo } from './Components/MainVideo';
 import { Description } from './Components/Description';
 import { Form } from './Components/Form';
 import { Comments } from './Components/Comments';
@@ -15,6 +15,7 @@ function App() {
         <Description />
         <Form />
         <Comments />
+        <NextVideo />
       </main>
     </div>
   );
