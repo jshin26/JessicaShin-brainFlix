@@ -1,0 +1,53 @@
+
+// IMPORTS
+
+@import '../style.scss/fonts';
+@import '../style.scss/mixins';
+@import '../style.scss/variable';
+
+
+// Description
+
+.description {
+    margin-bottom: 40px;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__title {
+        @include font (24px, 32px, 'AvenirNext', 700); 
+    }
+    &__detail {
+        display: flex;
+        &-by {
+            margin-right: 8px;
+        }
+        &-at {
+            @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
+            color: $silver;
+        }
+    }
+    &__data {
+        display: flex;
+        &-view {
+            display: flex;
+            width: 50%;
+        }
+        &-like {
+            display: flex;
+            width: 50%;
+        }
+        &-icon {
+            margin-right: 8px;
+        }
+        &-number {
+
+        }
+    }
+    &__info {
+        @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
+        color: $black;
+        border-top: 1px solid $mercury;
+        padding-top: 24px;
+    }
+}

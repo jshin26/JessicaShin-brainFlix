@@ -1,10 +1,10 @@
 import React from 'react';
-import { Header } from './Components/Header';
-import { MainVideo } from './Components/MainVideo';
-import { Description } from './Components/Description';
-import { Form } from './Components/Form';
-import { Comments } from './Components/Comments';
-import { NextVideo } from './Components/Next';
+import { Header } from './Components/Header/Header';
+import { MainVideo } from './Components/MainVideo/MainVideo';
+import { Description } from './Components/Description/Description';
+import { Form } from './Components/Form/Form';
+import { Comments } from './Components/Comments/Comments';
+import { SideVideo } from './Components/SideVideo/SideVideo';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Description />
         <Form />
         <Comments />
-        <NextVideo />
+        <SideVideo />
       </main>
     </div>
   );

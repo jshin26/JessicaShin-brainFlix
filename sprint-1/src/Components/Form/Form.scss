@@ -1,0 +1,71 @@
+
+// IMPORTS
+
+@import '../style.scss/fonts';
+@import '../style.scss/mixins';
+@import '../style.scss/variable';
+
+
+// FORM INPUT
+
+.form {
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__comments {
+
+    }
+    &__input {
+        display: flex;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $mercury;
+    }
+    &--left {
+        width: 54px;
+        margin-top: 1.875rem;
+        img {
+            width: 3.125rem;
+            height: 3.125rem;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 15% 50%;
+        }
+    }
+    &--right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding-left: 1rem;
+    }
+    &__text {
+        @include font (0.75rem, 1.25rem, 'AvenirNext', 600);
+        color: $silver;
+    }
+    &__new {
+        @include font (0.75rem, 1.25rem, 'AvenirNext', 600); 
+        border: 1px solid $brainflix-blue;
+        border-radius: 4px;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        &:focus {
+            border: 2px solid $brainflix-blue;                
+            outline: none;             
+        }
+        &::placeholder {
+            @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
+            color: $black;
+        }
+        &--bgrgray {
+            background-color: $alabaster;
+            resize: none;
+        }  
+    }
+    &__submit {
+
+    }
+    &__button {
+        width: 100%;
+    }
+}

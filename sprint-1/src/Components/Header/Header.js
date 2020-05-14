@@ -1,9 +1,9 @@
 import React from 'react';
-import './header.scss'
-import logoImage from '../Assets/Logo/Logo-brainflix.svg';
-import searchIcon from '../Assets/Icons/SVG/Icon-search.svg'
-import uploadIcon from '../Assets/Icons/SVG/Icon-upload.svg';
-import userImage from '../Assets/Images/Mohan-muruge.jpg'
+import './Header.scss'
+import logoImage from '../../Assets/Logo/Logo-brainflix.svg';
+import searchIcon from '../../Assets/Icons/SVG/Icon-search.svg'
+import uploadIcon from '../../Assets/Icons/SVG/Icon-upload.svg';
+import userImage from '../../Assets/Images/Mohan-muruge.jpg'
 
 export class Header extends React.Component {
     render () {

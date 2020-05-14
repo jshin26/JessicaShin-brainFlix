@@ -1,29 +1,9 @@
 
 // IMPORTS
 
-@import './style.scss/fonts';
-@import './style.scss/mixins';
-@import './style.scss/variable';
-
-
-// COMMON
-body {
-    min-width: 320px;
-    margin: 0;
-    padding: 0;
-    font-family: 'AvenirNext', sans-serif;
-    font-weight: 400;
-}
-
-.btn {
-    @include font (14px, 20px, 'AvenirNext', 600); 
-    background-color: $brainflix-blue;
-    color: $white;
-    border-radius: 4px;
-    border-style: none;
-    cursor: pointer;
-    padding: 13px;
-}
+@import '../style.scss/fonts';
+@import '../style.scss/mixins';
+@import '../style.scss/variable';
 
 
 // HEADER
@@ -50,6 +30,12 @@ body {
     &__search {
         border: none;
         color: $black;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: $black;
+        }
     }
     &__btn-container {
         display: flex;
@@ -62,9 +48,7 @@ body {
         justify-content: center;
         align-items: center;
         &-icon {
-            background-image: url('../Assets/Icons/SVG/Icon-upload.svg');
-            background-repeat: no-repeat;
-            background-position: right;
+            width: 18px;
             margin-right: 10px;
         }
         &-text {

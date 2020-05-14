@@ -1,0 +1,29 @@
+import React from 'react';
+import './Form.scss';
+import userImage from '../../Assets/Images/Mohan-muruge.jpg';
+
+export class Form extends React.Component {
+    render () {
+        return (
+            <section className="form">
+                <div className="form--inner">
+                    <h2 className="form__comments">3 Comments</h2>
+                    <div className="form__input">
+                        <div className="form--left">
+                            <img src={userImage} alt="userimage" />
+                        </div>
+    
+                        <form className="form--right" action="#">
+                            <label className="form__text" htmlFor="comment">JOIN THE CONVERSATION</label>
+                            <textarea className="form__new form__new--bgrgray" name="comment" cols="10" rows="4" placeholder="Add a new comment"></textarea>
+                            <div className="form__submit">
+                                <button className="form__button btn" type="submit">COMMENT</button>
+                            </div>
+                        </form> 
+                    </div>                    
+                    
+                </div>
+            </section>
+        )
+    }
+}
