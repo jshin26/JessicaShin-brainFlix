@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import './header.scss'
 
 export class Header extends React.Component {
@@ -8,15 +7,18 @@ export class Header extends React.Component {
             <header className="header">
 
                 <div className="header--inner">
-                    <img className="header__logo" src='../Assets/Logo/Logo-brainflix.svg'/>
+                    <img className="header__logo" src="../Assets/Logo/Logo-brainflix.svg" alt="brainFlix logo"/>
                     <div className="header__search-container">
                         <i className="header__search-icon"></i>
-                        <input className="header__search" type="text" placeholder="Search"></input>
+                        <input className="header__search" type="text" placeholder="Search"/>
                     </div>
-                    <button className="header__button btn">
-                        <i className="header__button-icon"></i>
-                        UPLOAD
-                    </button>
+                    <div className="header__btn-container">
+                        <button className="header__upload btn">
+                            <i className="header__upload-icon"></i>
+                            UPLOAD
+                        </button>
+                        <img className="header__userImg" src="../Assets/Images/Mohan-muruge.jpg" alt="userImage"/>
+                    </div>
                 </div>
                 
             </header>
