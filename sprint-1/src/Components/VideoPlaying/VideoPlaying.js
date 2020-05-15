@@ -1,18 +1,17 @@
 import React from 'react';
-import './MainVideo.scss';
-import { dataArray } from '../dataArray'
+import './VideoPlaying.scss';
 
 import playIcon from '../../Assets/Icons/SVG/Icon-play.svg';
-import pauseIcon from '../../Assets/Icons/SVG/Icon-pause.svg';
+// import pauseIcon from '../../Assets/Icons/SVG/Icon-pause.svg';
 import fullScreenIcon from '../../Assets/Icons/SVG/Icon-fullscreen.svg';
 import volumeIcon from '../../Assets/Icons/SVG/Icon-volume.svg';
 
 // main VIDEO Class
 
-export class VideoComp extends React.Component {
+export class VideoPlaying extends React.Component {
     render(){
 
-        let {image, video} = this.props;
+        let {image, video, duration} = this.props;
 
         return (
             <section className="main-video">
@@ -29,7 +28,7 @@ export class VideoComp extends React.Component {
 
                         <div className="main-video__process ctrl">
                             <div className="main-video__process-bar"></div>
-                            <p className="main-video__process-text">0:00/0:42</p>
+                            <p className="main-video__process-text">0:00/{duration}</p>
                         </div>
 
                         <div className="main-video__control--right ctrl">
@@ -41,22 +40,6 @@ export class VideoComp extends React.Component {
                         
                 </div>
             </section>
-        )
-    }
-}
-
-export class MainVideo extends React.Component {
-    
-    state ={
-        video: dataArray[0]
-    }
-
-    render() {
-        return (
-            <VideoComp 
-                image={this.state.video.image}
-                video={this.state.video.video}
-            />
         )
     }
 }

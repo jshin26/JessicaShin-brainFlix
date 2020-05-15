@@ -1,20 +1,13 @@
 import React from 'react';
 import { Header } from './Components/Header/Header';
-// import { dataArray } from './Components/dataArray'
-
-import { Main } from './Components/Main';
-
-import { SideVideo } from './Components/SideVideo/SideVideo';
-
+import { Main } from './Components/Main/Main';
 
 function App() {
 
   return (
     <div>
       <Header />
-      <main>
-        <Main />
-      </main>
+      <Main />
     </div>
   );
 }

@@ -1,14 +1,14 @@
-import thumbnail0 from '../Assets/Images/video-list-0.jpg';
-import thumbnail1 from '../Assets/Images/video-list-1.jpg';
-import thumbnail2 from '../Assets/Images/video-list-2.jpg';
-import thumbnail3 from '../Assets/Images/video-list-3.jpg';
-import thumbnail4 from '../Assets/Images/video-list-4.jpg';
-import thumbnail5 from '../Assets/Images/video-list-5.jpg';
-import thumbnail6 from '../Assets/Images/video-list-6.jpg';
-import thumbnail7 from '../Assets/Images/video-list-7.jpg';
-import thumbnail8 from '../Assets/Images/video-list-8.jpg';
+import thumbnail0 from './Assets/Images/video-list-0.jpg';
+import thumbnail1 from './Assets/Images/video-list-1.jpg';
+import thumbnail2 from './Assets/Images/video-list-2.jpg';
+import thumbnail3 from './Assets/Images/video-list-3.jpg';
+import thumbnail4 from './Assets/Images/video-list-4.jpg';
+import thumbnail5 from './Assets/Images/video-list-5.jpg';
+import thumbnail6 from './Assets/Images/video-list-6.jpg';
+import thumbnail7 from './Assets/Images/video-list-7.jpg';
+import thumbnail8 from './Assets/Images/video-list-8.jpg';
 
-import sampleVideo from '../Assets/Video/BrainStation Sample Video.mp4';
+import sampleVideo from './Assets/Video/BrainStation Sample Video.mp4';
 
 
 

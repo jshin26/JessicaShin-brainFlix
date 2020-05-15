@@ -1,7 +1,5 @@
 import React from 'react';
-import './SideVideo.scss';
-import { dataArray } from '../dataArray';
-import '../Main'
+import './VideoSide.scss';
 
 
 export class VideoList extends React.Component {
@@ -13,7 +11,7 @@ export class VideoList extends React.Component {
 
             <div className="next__video" >
                         
-                <img className="next__thumbnail" src={image}/>
+                <img className="next__thumbnail" src={image} alt={title}/>
                 <div className="next__info">
                     <p className="next__info-title">{title}</p>
                     <p className="next__info-channel">{channel}</p>
@@ -24,12 +22,8 @@ export class VideoList extends React.Component {
     }
 };
 
-export class SideVideo extends React.Component {
+export class VideoSide extends React.Component {
     
-    state ={
-        video: dataArray,
-    }
-
     render() {
 
         let {videoList} = this.props;
