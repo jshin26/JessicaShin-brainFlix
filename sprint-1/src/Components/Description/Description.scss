@@ -19,10 +19,10 @@
     }
     &__detail {
         display: flex;
-        &-by {
+        &-channel {
             margin-right: 8px;
         }
-        &-at {
+        &-date {
             @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
             color: $silver;
         }

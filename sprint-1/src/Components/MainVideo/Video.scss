@@ -1,0 +1,74 @@
+
+
+// IMPORTS
+
+@import '../style.scss/fonts';
+@import '../style.scss/mixins';
+@import '../style.scss/variable';
+
+// MAIN VIDEO
+
+.main-video {
+    width: 100%;
+    &--inner {
+        height: 100%;
+        position: relative;
+    }
+    &__video {
+        width: 320px;
+    }
+    &__control {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        bottom: 15px;
+        left: 16px;
+        width: 90%;
+        margin: 0 auto;
+        &--right {
+            display: flex;
+            justify-content: space-evenly;
+            width: 80px;
+            height: 35px;
+        }
+    }
+    &__play {
+        width: 50px;
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+    &__process {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // box-sizing: border-box;
+        padding: 0 16px;
+        margin: 0 8px;        
+        &-bar {
+            width: 100%;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        &-text {
+            display: none;
+        }
+    }
+    &__screen,
+    &__volume {
+        padding: 0;
+        background-color: transparent;
+        border-radius: 4px;
+        border-style: none;
+        cursor: pointer;
+    }
+}
+
+.ctrl {
+    height: 32px;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 4px;
+    border-style: none;
+    cursor: pointer;
+}

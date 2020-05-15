@@ -15,8 +15,8 @@ export class Description extends React.Component {
                     <h1 className="description__title">{title}</h1>
     
                     <div className="description__detail">
-                        <p className="description__detail-by">By {channel}</p>
-                        <p className="description__detail-at">{date}</p>
+                        <p className="description__detail-channel">By {channel}</p>
+                        <p className="description__detail-date">{date}</p>
                     </div>
     
                     <div className="description__data">

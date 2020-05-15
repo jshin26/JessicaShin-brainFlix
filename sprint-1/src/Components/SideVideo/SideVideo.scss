@@ -7,3 +7,27 @@
 
 // Side Video
 
+.next {
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__title {
+
+    }
+    &__video {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__thumbnail {
+        width: 120px;
+    }
+    &__info {
+        &-title {
+
+        }
+        &-channel {
+
+        }
+    }
+}
