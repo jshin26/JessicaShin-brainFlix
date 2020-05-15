@@ -1,6 +1,7 @@
 import React from 'react';
 import './SideVideo.scss';
-import { dataArray } from '../dataArray'
+import { dataArray } from '../dataArray';
+import '../Main'
 
 
 export class VideoList extends React.Component {
@@ -29,9 +30,10 @@ export class SideVideo extends React.Component {
         video: dataArray,
     }
 
-    nextVideoList = this.state.video.filter(video => video !== this.state.onVideo)
-
     render() {
+
+        let {videoList} = this.props;
+
         return (
             <React.Fragment>
 
@@ -40,12 +42,13 @@ export class SideVideo extends React.Component {
 
                         <p className="next__title">NEXT VIDEO</p>
 
-                        {this.state.video.map((content, index) => {
+                        {videoList.map((content, index) => {
                             return <VideoList
                                 key={index}
                                 image={content.image}
                                 title={content.title}
                                 channel={content.channel}
+                                
                             ></VideoList>
                         })}
 
