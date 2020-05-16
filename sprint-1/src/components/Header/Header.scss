@@ -14,15 +14,29 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
+        @include tablet {
+            width: 94%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
     &__logo {
         margin: 16px 0;
+        @include tablet {
+            margin-right: 148px;
+        }
     }
     &__search-container {
         display: flex;
         border: 1px solid $silver;
         background-color: $alabaster;
         padding: 13px;
+        border-radius: 5px;
+        @include tablet {
+            width: 100%;
+            padding: 12px;
+            margin: 16px 0;
+        }
     }
     &__search-icon {
         margin-right: 10px;
@@ -36,17 +50,31 @@
         &::placeholder {
             color: $black;
         }
+        @include tablet {
+            @include font (1rem, 1.25rem, 'AvenirNext', 400);
+            width: 100%;
+        }
     }
     &__btn-container {
         display: flex;
         justify-content: space-between;
         margin: 8px 0 16px;
+        @include tablet {
+            align-items: center;
+            margin: 12px 0;
+        }
     }
     &__upload {
         width: 80%;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 13px;
+        @include tablet {
+            height: 48px;
+            padding: 0 11px;
+            margin-left: 24px;
+        }
         &-icon {
             width: 18px;
             margin-right: 10px;
@@ -61,5 +89,8 @@
         object-position: 15% 50%;
         width: 48px;
         height: 48px;
+        @include tablet {
+            margin-left: 24px;
+        }
     }
 }

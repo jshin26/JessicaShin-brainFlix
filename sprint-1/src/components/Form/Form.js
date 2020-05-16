@@ -20,7 +20,7 @@ const Form = (props) => {
 
                     <form className="form--right" action="#">
                         <label className="form__text" htmlFor="comment">JOIN THE CONVERSATION</label>
-                        <textarea className="form__new form__new--bgrgray" name="comment" cols="10" rows="4" placeholder="Add a new comment"></textarea>
+                        <textarea className="form__new form__new--bgrgray" name="comment" cols="10" rows="3" placeholder="Add a new comment"></textarea>
                         <div className="form__submit">
                             <button className="form__button btn" type="submit">COMMENT</button>
                         </div>

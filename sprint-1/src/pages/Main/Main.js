@@ -13,7 +13,7 @@ import VideoSide from '../../components/VideoSide/VideoSide';
 
 // MAIN VIDEO SECTION
 
-export class Main extends React.Component {
+class Main extends React.Component {
 
     state ={
         video: dataArray,
@@ -72,3 +72,5 @@ export class Main extends React.Component {
         )
     }
 }
+
+export default Main;

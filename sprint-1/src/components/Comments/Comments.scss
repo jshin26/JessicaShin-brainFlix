@@ -39,6 +39,7 @@
     &__name {
         @include font (0.875rem, 1.25rem, 'AvenirNext', 600);
         margin-top: 1.563rem;
+        margin-bottom: 0;
         @include tablet {
             margin-bottom: 0;
         }
@@ -46,13 +47,14 @@
     &__date {
         @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
         color: $silver;
-        margin: 1.563rem 0 0.875rem;
+        margin: 1.563rem 0 12px;
         @include tablet {
             padding-left: 0.625rem;
         }
     }
     &__comments {
-        @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
-        padding: 0 0 1.5rem;
+        @include font (0.875rem, 1.25rem, 'AvenirNext', 300);
+        padding: 0 0 1rem;
+        margin: 0;
     }
 }

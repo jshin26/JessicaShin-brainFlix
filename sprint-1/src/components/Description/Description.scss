@@ -15,20 +15,24 @@
         margin: 0 auto;
     }
     &__title {
-        @include font (24px, 32px, 'AvenirNext', 700); 
+        @include font (24px, 32px, 'AvenirNext', 700);
+        margin: 32px 0 16px;
     }
     &__detail {
         display: flex;
         &-channel {
-            margin-right: 8px;
+            @include font (16px, 1.25rem, 'AvenirNext', 600);
+            margin: 0 8px 0 0;
         }
         &-date {
             @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
             color: $silver;
+            margin: 0;
         }
     }
     &__data {
         display: flex;
+        margin: 32px 0 24px;
         &-view {
             display: flex;
             width: 50%;
@@ -41,13 +45,14 @@
             margin-right: 8px;
         }
         &-number {
-
+            margin: 0;
         }
     }
     &__info {
-        @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
+        @include font (12px, 18px, 'AvenirNext', 400);
         color: $black;
         border-top: 1px solid $mercury;
         padding-top: 24px;
+        margin: 0 0 40px;
     }
 }
