@@ -20,9 +20,13 @@ const Form = (props) => {
 
                     <form className="form--right" action="#">
                         <label className="form__text" htmlFor="comment">JOIN THE CONVERSATION</label>
-                        <textarea className="form__new form__new--bgrgray" name="comment" cols="10" rows="3" placeholder="Add a new comment"></textarea>
-                        <div className="form__submit">
-                            <button className="form__button btn" type="submit">COMMENT</button>
+                        <div className="form__container">
+                            
+                            <textarea className="form__new form__new--bgrgray" name="comment" cols="10" placeholder="That was easily the most spectacular BMX moment ever."></textarea>
+                        
+                            <div className="form__submit">
+                                <button className="form__button btn" type="submit">COMMENT</button>
+                            </div>
                         </div>
                     </form> 
                 </div>                    

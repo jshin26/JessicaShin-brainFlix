@@ -12,6 +12,9 @@
     &--inner {
         width: 90%;
         margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
     }
     &__comments {
         @include font (16px, 1.25rem, 'AvenirNext', 600);
@@ -24,7 +27,7 @@
     }
     &--left {
         width: 54px;
-        margin-top: 1.875rem;
+        margin-top: 16px;
         img {
             width: 3.125rem;
             height: 3.125rem;
@@ -39,36 +42,60 @@
         flex-direction: column;
         flex-wrap: nowrap;
         padding-left: 1rem;
+        @include tablet {
+            width: 90%;
+        }
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+        }
     }
     &__text {
-        @include font (0.75rem, 1.25rem, 'AvenirNext', 600);
+        @include font (0.8rem, 24px, 'AvenirNext', 600);
         color: $silver;
     }
     &__new {
-        @include font (0.75rem, 1.25rem, 'AvenirNext', 600); 
+        @include font (0.875rem, 22px, 'AvenirNext', 400);
         border: 1px solid $brainflix-blue;
         border-radius: 4px;
-        padding: 0.75rem;
         margin-bottom: 1rem;
+        padding: 0.75rem;
+        height: 70px;
+        @include tablet {
+            width: 65%;
+            height: 24px;
+            margin-bottom: 0;
+        }
         &:focus {
             border: 2px solid $brainflix-blue;                
             outline: none;             
         }
         &::placeholder {
-            @include font (0.875rem, 1.25rem, 'AvenirNext', 400);
+            @include font (0.875rem, 22px, 'AvenirNext', 400);
             color: $black;
+            @include tablet {
+                @include font (15px, 25px, 'AvenirNext', 400); 
+            }
         }
         &--bgrgray {
             background-color: $alabaster;
             resize: none;
-        }  
+        }
     }
     &__submit {
-
+        @include tablet {
+            width: 160px;
+            padding: 0 40px 0 16px;
+        }
     }
     &__button {
         width: 100%;
         padding: 13px;
-
+        @include tablet {
+            padding: 14px 0;
+        }
     }
 }

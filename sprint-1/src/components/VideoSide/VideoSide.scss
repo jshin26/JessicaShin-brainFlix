@@ -11,6 +11,9 @@
     &--inner {
         width: 90%;
         margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
     }
     &__title {
         @include font (0.875rem, 1.25rem, 'AvenirNext', 600);
@@ -20,6 +23,10 @@
     &__video {
         display: flex;
         justify-content: space-between;
+        @include tablet {
+            justify-content: flex-start;
+            width: 45%;
+        }
     }
     &__thumbnail {
         width: 120px;
@@ -37,6 +44,9 @@
             height:36px;
             overflow: hidden;
             text-overflow: clip ellipsis;
+            @include tablet {
+            @include font (16px, 1.25rem, 'AvenirNext', 600);                
+            }
         }
         &-channel {
             @include font (0.875rem, 1.25rem, 'AvenirNext', 300);

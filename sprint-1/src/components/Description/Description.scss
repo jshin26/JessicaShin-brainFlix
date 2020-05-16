@@ -13,10 +13,25 @@
     &--inner {
         width: 90%;
         margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
     }
     &__title {
         @include font (24px, 32px, 'AvenirNext', 700);
         margin: 32px 0 16px;
+        @include tablet {
+            @include font (36px, 44px, 'AvenirNext', 700);
+            margin: 48px 0 24px;
+        }
+    }
+    &--flexbox {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 24px;
+        }
     }
     &__detail {
         display: flex;
@@ -33,19 +48,28 @@
     &__data {
         display: flex;
         margin: 32px 0 24px;
-        &-view {
-            display: flex;
-            width: 50%;
+        @include tablet {
+            width: auto;
+            justify-content: space-between;
+            margin: 0;
         }
+        &-view,
         &-like {
             display: flex;
             width: 50%;
+            @include tablet {
+                width: auto;
+                margin-left: 24px;
+            }
         }
         &-icon {
             margin-right: 8px;
         }
         &-number {
             margin: 0;
+            @include tablet {
+                @include font (14px, 18px, 'AvenirNext', 400);
+            }
         }
     }
     &__info {
@@ -54,5 +78,10 @@
         border-top: 1px solid $mercury;
         padding-top: 24px;
         margin: 0 0 40px;
+        @include tablet {
+            @include font (14px, 20px, 'AvenirNext', 400);
+            width: 72%;
+            margin-bottom: 64px;
+        }
     }
 }
