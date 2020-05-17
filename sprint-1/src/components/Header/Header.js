@@ -16,10 +16,10 @@ const Header = () => {
             <div className="header--inner">
                 <img className="header__logo" src={logoImage} alt="brainFlix logo"/>
                 <div className="header--flexbox">
-                    <div className="header__search-container">
+                    <form className="header__search-container">
                         <img className="header__search-icon" src={searchIcon} alt="searchIcon"/>
                         <input className="header__search" type="text" placeholder="Search"/>
-                    </div>
+                    </form>
                     <div className="header__btn-container">
                         <button className="header__upload btn">
                             <img className="header__upload-icon" src={uploadIcon} alt="uploadIcon"/>

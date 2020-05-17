@@ -20,17 +20,17 @@
         }
     }
     &__comments {
-        @include font (16px, 1.25rem, 'AvenirNext', 600);
-        margin: 0 0 32px;
+        @include font (1rem, 1.25rem, 'AvenirNext', 600);
+        margin: 0 0 2rem;
     }
     &__input {
         display: flex;
-        padding-bottom: 24px;
+        padding-bottom: 1.5rem;
         border-bottom: 1px solid $mercury;
     }
     &--left {
-        width: 54px;
-        margin-top: 16px;
+        width: 3.375rem;
+        margin-top: 1rem;
         img {
             width: 3.125rem;
             height: 3.125rem;
@@ -57,19 +57,19 @@
         }
     }
     &__text {
-        @include font (0.8rem, 24px, 'AvenirNext', 600);
+        @include font (0.8rem, 1.5rem, 'AvenirNext', 600);
         color: $silver;
     }
     &__new {
-        @include font (0.875rem, 22px, 'AvenirNext', 400);
+        @include font (0.875rem, 1.375rem, 'AvenirNext', 400);
         border: 1px solid $mercury;
         border-radius: 4px;
         margin-bottom: 1rem;
         padding: 0.75rem;
-        height: 70px;
+        height: 4.375rem;
         @include tablet {
             width: 65%;
-            height: 24px;
+            height: 1.5rem;
             margin-bottom: 0;
         }
         &:focus {
@@ -77,10 +77,10 @@
             outline: none;             
         }
         &::placeholder {
-            @include font (0.875rem, 22px, 'AvenirNext', 400);
+            @include font (0.875rem, 1.375rem, 'AvenirNext', 400);
             color: $black;
             @include tablet {
-                @include font (15px, 25px, 'AvenirNext', 400); 
+                @include font (0.938rem, 1.563rem, 'AvenirNext', 400); 
             }
         }
         &--bgrgray {
@@ -90,15 +90,15 @@
     }
     &__submit {
         @include tablet {
-            width: 160px;
-            padding: 0 40px 0 16px;
+            width: 10rem;
+            padding: 0 2.5rem 0 1rem;
         }
     }
     &__button {
         width: 100%;
-        padding: 13px;
+        padding: 0.813rem;
         @include tablet {
-            padding: 14px 0;
+            padding: 0.875rem 0;
         }
     }
 }

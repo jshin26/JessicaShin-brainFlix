@@ -16,17 +16,18 @@
         }
         @include desktop {
             width: 100%;
-            margin-left: 24px;
+            margin-left: 1.5rem;
         }
     }
     &__title {
         @include font (0.875rem, 1.25rem, 'AvenirNext', 600);
         color: $silver;
-        margin: 40px 0;
+        margin: 2.5rem 0;
     }
     &__video {
         display: flex;
         justify-content: space-between;
+        text-decoration: none;
         @include tablet {
             justify-content: flex-start;
             width: 47%;
@@ -34,25 +35,29 @@
         @include desktop {
             width: 95%;
         }
+        &:link,
+        &:visited {
+            color: $black;
+        }
     }
     &__thumbnail {
-        width: 120px;
-        height: 70px;
+        width: 7.5rem;
+        height: 4.375rem;
         object-fit: cover;
         object-position: center;
-        margin: 0 16px 24px 0;
+        margin: 0 1rem 1.5rem 0;
         border-radius: 5px;
         @include desktop {
-            margin-right: 12px;
+            margin-right: 0.75rem;
         }
     }
     &__info {
         display: flex;
         flex-direction: column;
-        height: 65px;
+        height: 4.063rem;
         width: 100%;
         @include tablet {
-            height: 70px;
+            height: 4.375rem;
         }
         &-title {
             @include font (0.875rem, 1.25rem, 'AvenirNext', 600);
@@ -61,7 +66,7 @@
             overflow: hidden;
             text-overflow: clip ellipsis;
             @include tablet {
-                @include font (16px, 1.25rem, 'AvenirNext', 600);
+                @include font (1rem, 1.25rem, 'AvenirNext', 600);
             }
         }
         &-channel {

@@ -10,7 +10,7 @@ const VideoList = (props) => {
 
     return (
 
-        <div className="next__video" >
+        <a className="next__video" href="#">
                     
             <img className="next__thumbnail" src={image} alt={title}/>
             <div className="next__info">
@@ -18,7 +18,7 @@ const VideoList = (props) => {
                 <p className="next__info-channel">{channel}</p>
             </div>
 
-        </div>
+        </a>
     ) 
  
 };
