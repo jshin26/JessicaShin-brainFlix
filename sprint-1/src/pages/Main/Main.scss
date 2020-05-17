@@ -10,16 +10,22 @@
 
 .main {
     &--flexbox {
-        display: flex;
-        width: 89%;
-        margin: 0 auto;
+        @include desktop {
+            display: flex;
+            width: 89%;
+            margin: 0 auto;
+        }
     }
     &--left {
-        width: 67%;
-        margin-bottom: 24px;
+        @include desktop {
+            width: 67%;
+            margin-bottom: 24px;
+        }
     }
     &--right {
-        width: 33%;
-        border-left: 1px solid $mercury;
+        @include desktop {
+            width: 33%;
+            border-left: 1px solid $mercury;
+        }
     }
 }

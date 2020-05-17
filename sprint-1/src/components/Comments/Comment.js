@@ -2,6 +2,39 @@ import React from 'react';
 import './Comments.scss';
 
 
+// TImestamp
+// Did not use it for this sprint, since we have 'date', not 'timestamp' in data
+
+// function updateTime(unix) {
+//     const getDate = new Date(unix);
+
+//     const year = getDate.getFullYear();
+//     const month = getDate.getMonth();
+//     const day = getDate.getDate();
+
+
+//     let calSeconds = Math.floor((new Date() - getDate) / 1000);
+//     let timeAgo = Math.floor(calSeconds / 2592000);
+//     if (timeAgo > 1) {
+//     return (month+1) + '/' + day + '/' + year;
+//     }
+//     timeAgo = Math.floor(calSeconds / 86400);
+//     if (timeAgo > 1) {
+//       return timeAgo + " days ago";
+//     }
+//     timeAgo = Math.floor(calSeconds / 3600);
+//     if (timeAgo > 1) {
+//       return timeAgo + " hours ago";
+//     }
+//     timeAgo = Math.floor(calSeconds / 60);
+//     if (timeAgo > 1) {
+//       return timeAgo + " minutes ago";
+//     }
+//     return Math.floor(calSeconds) + " seconds ago";
+
+// };
+
+
 // VIDEO COMMENTS
 
 const Comment = (props) => {

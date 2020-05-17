@@ -1,6 +1,6 @@
 import React from 'react';
 import { dataArray } from '../../dataArray';
-import'./Main.scss'
+import'./Main.scss';
 
 // import each components
 import Header from '../../components/Header/Header';
@@ -17,7 +17,7 @@ class Main extends React.Component {
 
     state ={
         video: dataArray,
-        selectedVideo: dataArray[0]        
+        selectedVideo: dataArray[0],  
     }
 
     render () {
