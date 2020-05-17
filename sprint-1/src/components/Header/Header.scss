@@ -24,9 +24,9 @@
         }
     }
     &__logo {
-        margin: 16px 0;
+        margin: 1rem 0;
         @include tablet {
-            margin-right: 148px;
+            margin-right: 9.25rem;
         }
     }
     &--flexbox {
@@ -42,12 +42,12 @@
         display: flex;
         border: 1px solid $silver;
         background-color: $alabaster;
-        padding: 13px;
+        padding: 0.813rem;
         border-radius: 5px;
         @include tablet {
             width: 100%;
-            padding: 12px;
-            margin: 16px 0;
+            padding: 0.75rem;
+            margin: 1rem 0;
         }
         @include desktop {
             width: 100%;
@@ -55,7 +55,7 @@
         }
     }
     &__search-icon {
-        margin-right: 10px;
+        margin-right: 0.625rem;
     }
     &__search {
         border: none;
@@ -74,10 +74,10 @@
     &__btn-container {
         display: flex;
         justify-content: space-between;
-        margin: 8px 0 16px;
+        margin: 0.5rem 0 1rem;
         @include tablet {
             align-items: center;
-            margin: 12px 0;
+            margin: 0.75rem 0;
         }
     }
     &__upload {
@@ -85,15 +85,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 13px;
+        padding: 0.813rem;
         @include tablet {
-            height: 48px;
-            padding: 0 11px;
-            margin-left: 24px;
+            height: 3rem;
+            padding: 0 0.688rem;
+            margin-left: 1.5rem;
         }
         &-icon {
-            width: 18px;
-            margin-right: 10px;
+            width: 1.125rem;
+            margin-right: 0.625rem;
         }
         &-text {
             margin: 0;
@@ -103,10 +103,10 @@
         border-radius: 50%;
         object-fit: cover;
         object-position: 15% 50%;
-        width: 48px;
-        height: 48px;
+        width: 3rem;
+        height: 3rem;
         @include tablet {
-            margin-left: 24px;
+            margin-left: 1.5rem;
         }
     }
 }
