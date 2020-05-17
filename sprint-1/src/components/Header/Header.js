@@ -15,16 +15,18 @@ const Header = () => {
 
             <div className="header--inner">
                 <img className="header__logo" src={logoImage} alt="brainFlix logo"/>
-                <div className="header__search-container">
-                    <img className="header__search-icon" src={searchIcon} alt="searchIcon"/>
-                    <input className="header__search" type="text" placeholder="Search"/>
-                </div>
-                <div className="header__btn-container">
-                    <button className="header__upload btn">
-                        <img className="header__upload-icon" src={uploadIcon} alt="uploadIcon"/>
-                        <p className="header__upload-text">UPLOAD</p>
-                    </button>
-                    <img className="header__userImg" src={userImage} alt="userImage"/>
+                <div className="header--flexbox">
+                    <div className="header__search-container">
+                        <img className="header__search-icon" src={searchIcon} alt="searchIcon"/>
+                        <input className="header__search" type="text" placeholder="Search"/>
+                    </div>
+                    <div className="header__btn-container">
+                        <button className="header__upload btn">
+                            <img className="header__upload-icon" src={uploadIcon} alt="uploadIcon"/>
+                            <p className="header__upload-text">UPLOAD</p>
+                        </button>
+                        <img className="header__userImg" src={userImage} alt="userImage"/>
+                    </div>
                 </div>
             </div>
             

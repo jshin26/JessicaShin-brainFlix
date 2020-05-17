@@ -19,11 +19,23 @@
             flex-direction: row;
             justify-content: space-between;
         }
+        @include desktop {
+            width: 89%;
+        }
     }
     &__logo {
         margin: 16px 0;
         @include tablet {
             margin-right: 148px;
+        }
+    }
+    &--flexbox {
+        @include tablet {
+            display: flex;
+        }
+        @include desktop {
+            justify-content: space-between;
+            width: 43%;
         }
     }
     &__search-container {
@@ -36,6 +48,10 @@
             width: 100%;
             padding: 12px;
             margin: 16px 0;
+        }
+        @include desktop {
+            width: 100%;
+            justify-content: space-between;
         }
     }
     &__search-icon {

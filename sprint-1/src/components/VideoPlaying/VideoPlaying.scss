@@ -15,6 +15,9 @@
         height: 400px;
         background-color: black;
     }
+    @include desktop {
+        height: 540px;
+    }
     &--inner {
         height: 180px;
         position: relative;
@@ -22,6 +25,10 @@
             width: 91%;
             height: 400px;
             margin: 0 auto;
+        }
+        @include desktop {
+            width: 79%;
+            height: 540px;
         }
     }
     &__video {
@@ -43,6 +50,10 @@
         margin: 0 auto;
         @include tablet {
             width: 98%;
+        }
+        @include desktop {
+            width: 96%;
+            left: 16px;
         }
         &--right {
             display: flex;
@@ -66,7 +77,10 @@
         @include tablet {
             width: 75%;
             margin: 0 16px;
-        }     
+        }
+        @include desktop {
+            width: 80%;
+        }
         &-bar {
             width: 100%;
             border: 2px solid black;

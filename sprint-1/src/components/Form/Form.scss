@@ -15,6 +15,9 @@
         @include tablet {
             width: 94%;
         }
+        @include desktop {
+            width: 100%;
+        }
     }
     &__comments {
         @include font (16px, 1.25rem, 'AvenirNext', 600);

@@ -34,7 +34,7 @@ class Main extends React.Component {
 
                     <div className="main--flexbox">
                         
-                        <div className="main__description">
+                        <div className="main--left">
                             <Description 
                                 title={this.state.selectedVideo.title}
                                 channel={this.state.selectedVideo.channel}
@@ -62,9 +62,11 @@ class Main extends React.Component {
                             </React.Fragment>
                         </div>
         
-                        <VideoSide 
-                            videoList={this.state.video.filter(content => content !== this.state.selectedVideo)}
-                        /> 
+                        <div className="main--right">
+                            <VideoSide 
+                                videoList={this.state.video.filter(content => content !== this.state.selectedVideo)}
+                            /> 
+                        </div>
                     </div>
 
                 </main>
