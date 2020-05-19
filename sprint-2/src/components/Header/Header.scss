@@ -1,0 +1,115 @@
+
+// IMPORTS
+
+@import '../../styles/fonts';
+@import '../../styles/mixins';
+@import '../../styles/variable';
+
+
+// HEADER
+
+.header {
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            width: 94%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        @include desktop {
+            width: 89%;
+        }
+    }
+    &__logo {
+        margin: 1rem 0;
+        @include tablet {
+            margin-right: 9.25rem;
+        }
+    }
+    &--flexbox {
+        @include tablet {
+            display: flex;
+        }
+        @include desktop {
+            justify-content: space-between;
+            width: 43%;
+        }
+    }
+    &__search-container {
+        display: flex;
+        border: 1px solid $silver;
+        background-color: $alabaster;
+        padding: 0.813rem;
+        border-radius: 5px;
+        @include tablet {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 1rem 0;
+        }
+        @include desktop {
+            width: 100%;
+            justify-content: space-between;
+        }
+        &:focus-within {
+            border: 2px solid $brainflix-blue; 
+        }
+    }
+    &__search-icon {
+        margin-right: 0.625rem;
+    }
+    &__search {
+        border: none;
+        color: $black;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: $black;
+        }
+        @include tablet {
+            @include font (1rem, 1.25rem, 'AvenirNext', 400);
+            width: 100%;
+        }
+    }
+    &__btn-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5rem 0 1rem;
+        @include tablet {
+            align-items: center;
+            margin: 0.75rem 0;
+        }
+    }
+    &__upload {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.813rem;
+        @include tablet {
+            height: 3rem;
+            padding: 0 0.688rem;
+            margin-left: 1.5rem;
+        }
+        &-icon {
+            width: 1.125rem;
+            margin-right: 0.625rem;
+        }
+        &-text {
+            margin: 0;
+        }
+    }
+    &__userImg {
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 15% 50%;
+        width: 3rem;
+        height: 3rem;
+        @include tablet {
+            margin-left: 1.5rem;
+        }
+    }
+}
