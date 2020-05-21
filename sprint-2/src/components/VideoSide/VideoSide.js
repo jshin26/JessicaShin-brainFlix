@@ -1,6 +1,6 @@
 import React from 'react';
 import './VideoSide.scss';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 // NEXT VIDEO LISTS
@@ -11,7 +11,7 @@ const VideoList = (props) => {
 
     return (
 
-        <NavLink className="next__video" to={navlinks}>
+        <Link className="next__video" to={navlinks}>
                     
             <img className="next__thumbnail" src={image} alt={title}/>
             <div className="next__info">
@@ -19,7 +19,7 @@ const VideoList = (props) => {
                 <p className="next__info-channel">{channel}</p>
             </div>
 
-        </NavLink>
+        </Link>
     ) 
  
 };
@@ -44,7 +44,7 @@ const VideoSide = (props) => {
                             channel={content.channel}
                             navlinks={`/${content.id}`}
                             
-                        ></VideoList>
+                        />
                     })}
 
                 </div>

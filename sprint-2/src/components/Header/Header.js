@@ -5,7 +5,7 @@ import searchIcon from '../../assets/Icons/SVG/Icon-search.svg'
 import uploadIcon from '../../assets/Icons/SVG/Icon-upload.svg';
 import userImage from '../../assets/Images/Mohan-muruge.jpg';
 
-import {Route, Switch, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 // HEADER
@@ -16,7 +16,7 @@ const Header = () => {
         <header className="header">
 
             <div className="header--inner">
-                <NavLink to="/" className="header__logo">
+                <NavLink exact to="/" className="header__logo">
                     <img  src={logoImage} alt="brainFlix logo"/>
                 </NavLink>
                 <div className="header--flexbox">

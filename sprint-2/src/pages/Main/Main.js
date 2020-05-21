@@ -7,26 +7,22 @@ import axios from 'axios';
 import VideoPlaying from '../../components/VideoPlaying/VideoPlaying'
 import Description from '../../components/Description/Description';
 import Form from '../../components/Form/Form';
-// import Comment from '../../components/Comments/Comment';
+import Comment from '../../components/Comments/Comment';
 import VideoSide from '../../components/VideoSide/VideoSide';
-
-
 
 
 // MAIN VIDEO SECTION
 
 const api = 'https://project-2-api.herokuapp.com/videos';
 const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523dd7';
-// const mainurl = '1af0jruup5gu'
 
-const apiURL = api + key
+const mainURL = '/1af0jruup5gu'
 
 
 class Main extends React.Component {
-
+    
     state ={
         videoData: [],
-        // video: dataArray,
         selectedVideo: {
             comments: []
         }
@@ -34,24 +30,22 @@ class Main extends React.Component {
 
     componentDidMount() {
         axios
-            .get(apiURL)
+            .get(api+mainURL+key)
+            .then(response => {
+                this.setState({
+                    selectedVideo: response.data
+                })
+            })
+        axios
+            .get(api+key)
             .then(response => {
                 this.setState({
                     videoData: response.data
                 })
             })
-        axios
-            .get(apiURL)
-            .then(response => {
-                console.log(response)
-                this.setState({
-                    selectedVideo: response.data[0]
-                })
-            })
     }
 
     componentDidUpdate() {
-        console.log(this.props)
         axios
             .get(`${api}/${this.props.match.params.id}${key}`)
             .then(response => {
@@ -89,21 +83,13 @@ class Main extends React.Component {
                             />
             
                             <Form 
-                                // comment={this.state.selectedVideo.comments}
+                                comment={this.state.selectedVideo.comments}
+                            />
+
+                            <Comment 
+                                displayComment={this.state.selectedVideo.comments}
                             />
             
-                            {/* <React.Fragment>
-            
-                                {this.state.selectedVideo.comments.map((content) => {
-                                    return <Comment
-                                        key={content.id}
-                                        name={content.name}
-                                        date={content.date}
-                                        comment={content.comment}
-                                ></Comment>
-                                })}
-            
-                            </React.Fragment> */}
                         </div>
         
                         <div className="main--right">

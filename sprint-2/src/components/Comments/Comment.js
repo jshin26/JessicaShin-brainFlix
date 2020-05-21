@@ -37,9 +37,9 @@ import './Comments.scss';
 
 // VIDEO COMMENTS
 
-const Comment = (props) => {
+const CommentComponent = (props) => {
 
-    let {name, date, comment} = props;
+    let {name, timestamp, comment} = props;
 
     return (
 
@@ -55,7 +55,7 @@ const Comment = (props) => {
     
                         <div className="comment__info">
                             <p className="comment__name">{name}</p>
-                            <p className="comment__date">{date}</p>
+                            <p className="comment__date">{timestamp}</p>
                         </div>
     
                         <div>
@@ -68,6 +68,29 @@ const Comment = (props) => {
             </div>
         </section>
     )
+}
+
+const Comment = props => {
+
+    let {displayComment} = props;
+
+    return (
+        <div>
+
+            {displayComment.map((content) => {
+                return (
+                    <CommentComponent
+                    key={content.id}
+                    name={content.name}
+                    timestamp={content.timestamp}
+                    comment={content.comment}
+                    />
+                )
+            })}
+
+        </div>  
+    )
+
 }
 
 export default Comment;
