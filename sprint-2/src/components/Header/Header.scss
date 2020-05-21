@@ -25,6 +25,9 @@
     }
     &__logo {
         margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         @include tablet {
             margin-right: 9.25rem;
         }
@@ -77,6 +80,7 @@
     &__btn-container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin: 0.5rem 0 1rem;
         @include tablet {
             align-items: center;
@@ -84,15 +88,19 @@
         }
     }
     &__upload {
-        width: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.813rem;
+        width: 80%;        
+        text-decoration: none;
         @include tablet {
             height: 3rem;
             padding: 0 0.688rem;
             margin-left: 1.5rem;
+        }
+        button {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.813rem;
         }
         &-icon {
             width: 1.125rem;

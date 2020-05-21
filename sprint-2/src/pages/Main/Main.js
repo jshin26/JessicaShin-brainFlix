@@ -1,29 +1,73 @@
 import React from 'react';
-import { dataArray } from '../../dataArray';
 import'./Main.scss';
+import axios from 'axios';
 
 // import each components
-import Header from '../../components/Header/Header';
+
 import VideoPlaying from '../../components/VideoPlaying/VideoPlaying'
 import Description from '../../components/Description/Description';
 import Form from '../../components/Form/Form';
-import Comment from '../../components/Comments/Comment';
+// import Comment from '../../components/Comments/Comment';
 import VideoSide from '../../components/VideoSide/VideoSide';
+
+
 
 
 // MAIN VIDEO SECTION
 
+const api = 'https://project-2-api.herokuapp.com/videos';
+const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523dd7';
+// const mainurl = '1af0jruup5gu'
+
+const apiURL = api + key
+
+
 class Main extends React.Component {
 
     state ={
-        video: dataArray,
-        selectedVideo: dataArray[0],  
+        videoData: [],
+        // video: dataArray,
+        selectedVideo: {
+            comments: []
+        }
+    }
+
+    componentDidMount() {
+        axios
+            .get(apiURL)
+            .then(response => {
+                this.setState({
+                    videoData: response.data
+                })
+            })
+        axios
+            .get(apiURL)
+            .then(response => {
+                console.log(response)
+                this.setState({
+                    selectedVideo: response.data[0]
+                })
+            })
+    }
+
+    componentDidUpdate() {
+        console.log(this.props)
+        axios
+            .get(`${api}/${this.props.match.params.id}${key}`)
+            .then(response => {
+                if (this.state.selectedVideo.id !== response.data.id) {
+                    this.setState({
+                        selectedVideo: response.data
+                    })
+                }
+            })
     }
 
     render () {
+
         return (
             <React.Fragment>
-                <Header />
+                
                 <main className="main">
 
                     <VideoPlaying 
@@ -45,10 +89,10 @@ class Main extends React.Component {
                             />
             
                             <Form 
-                                comment={this.state.selectedVideo.comments}
+                                // comment={this.state.selectedVideo.comments}
                             />
             
-                            <React.Fragment>
+                            {/* <React.Fragment>
             
                                 {this.state.selectedVideo.comments.map((content) => {
                                     return <Comment
@@ -59,17 +103,18 @@ class Main extends React.Component {
                                 ></Comment>
                                 })}
             
-                            </React.Fragment>
+                            </React.Fragment> */}
                         </div>
         
                         <div className="main--right">
                             <VideoSide 
-                                videoList={this.state.video.filter(content => content !== this.state.selectedVideo)}
+                                videoList={this.state.videoData.filter(content => content.id !== this.state.selectedVideo.id)}
                             /> 
                         </div>
                     </div>
 
                 </main>
+
             </React.Fragment>
         )
     }
