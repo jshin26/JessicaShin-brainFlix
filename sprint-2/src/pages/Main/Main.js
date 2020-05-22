@@ -14,7 +14,7 @@ import VideoSide from '../../components/VideoSide/VideoSide';
 // MAIN VIDEO SECTION
 
 const api = 'https://project-2-api.herokuapp.com/videos';
-const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523dde';
+const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523ddf';
 
 const mainURL = '/1af0jruup5gu';
 
@@ -27,6 +27,16 @@ class Main extends React.Component {
             comments: []
         },
         updateComments: []
+    }
+
+    getfromAPI ( routeId ) {
+        axios
+            .get(api + routeId + key)
+            .then(response => {
+                this.setState({
+                   selectedVideo : response.data
+                })
+            })
     }
 
     componentDidMount() {
@@ -46,32 +56,65 @@ class Main extends React.Component {
             })
     };
 
-    componentDidUpdate() {
-        axios
-            .get(`${api}/${this.props.match.params.id}${key}`)
-            .then(response => {
-                if (this.state.selectedVideo.id !== response.data.id) {
-                    this.setState({
-                        selectedVideo: response.data.comments
-                    })
-                }
+    componentDidUpdate(prevProps) {
+        const { url } = this.props.match;
+        const  previous  = prevProps.match.url;
+
+        if (url !== previous && url !== '/') {
+            axios.get(`${api}/${this.props.match.params.id}${key}`).then(response=>{
+                this.setState({
+                    selectedVideo: response.data
+                })
             })
-    };
+        } else if (url !== previous && url === '/') {
+            axios.get(api+mainURL+key).then(response=>{
+                this.setState({
+                    selectedVideo: response.data
+                })
+            })
+        }
+        
+        // if (prevProps.match.params.id !== this.props.match.params.id && prevProps.match.params.id !== '/') {
+        //     axios
+        //         .get(`${api}/${this.props.match.params.id}${key}`)
+        //         .then(response => {
+        //             this.setState({
+        //                 selectedVideo: response.data
+        //             })
+        //         })
+        // } 
+        // else if (prevProps.match.params.id !== this.props.match.params.id && prevProps.match.params.id ==='/'){
+        //     axios
+        //         .get(api+mainURL+key)
+        //         .then(response => {
+        //             this.setState({
+        //                 selectedVideo: response.data
+        //             })
+        //         })
+        // }
+    }
 
     submitHandle = (e) => {
         e.preventDefault();
 
-        return axios.post(`${api}/${this.props.match.params.id}/comments${key}`, {
-            'name' : e.target.name.value,
-            'comment' : e.target.comment.value
-        })
-            .then(response => {
-                this.setState({
-                    updateComments: response.data.comments
-                })
-                
+        if (!e.target.name.value || !e.target.comment.value) {
+
+            alert ('Please type your name');
+
+        } else {
+            
+            return axios.post(`${api}/${this.props.match.params.id}/comments${key}`, {
+                'name' : e.target.name.value,
+                'comment' : e.target.comment.value
             })
-            // this.submitHandle.reset();
+                .then(response => {
+                    this.setState({
+                        updateComments: response.data.comments
+                    })
+                    
+                })
+                // this.submitHandle.reset();
+        }
     };
 
 
@@ -101,7 +144,7 @@ class Main extends React.Component {
                             />
             
                             <Form 
-                                comment={this.state.selectedVideo.comments}
+                                comments={this.state.selectedVideo.comments}
                                 submitHandle={this.submitHandle}
                             />
 

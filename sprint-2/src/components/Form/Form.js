@@ -7,12 +7,12 @@ import userImage from '../../assets/Images/Mohan-muruge.jpg';
 
 const Form = (props) => {
 
-    let {comment, submitHandle} = props;
+    let {comments, submitHandle} = props;
     
     return (
         <section className="form">
             <div className="form--inner">
-                <h2 className="form__comments">{comment.length} Comments</h2>
+                <h2 className="form__comments">{comments.length} Comments</h2>
                 <div className="form__input">
                     <div className="form--left">
                         <img src={userImage} alt="userimage" />
