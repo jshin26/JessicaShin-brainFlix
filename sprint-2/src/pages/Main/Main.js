@@ -14,9 +14,9 @@ import VideoSide from '../../components/VideoSide/VideoSide';
 // MAIN VIDEO SECTION
 
 const api = 'https://project-2-api.herokuapp.com/videos';
-const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523dd7';
+const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523dde';
 
-const mainURL = '/1af0jruup5gu'
+const mainURL = '/1af0jruup5gu';
 
 
 class Main extends React.Component {
@@ -25,7 +25,8 @@ class Main extends React.Component {
         videoData: [],
         selectedVideo: {
             comments: []
-        }
+        },
+        updateComments: []
     }
 
     componentDidMount() {
@@ -43,7 +44,7 @@ class Main extends React.Component {
                     videoData: response.data
                 })
             })
-    }
+    };
 
     componentDidUpdate() {
         axios
@@ -51,11 +52,28 @@ class Main extends React.Component {
             .then(response => {
                 if (this.state.selectedVideo.id !== response.data.id) {
                     this.setState({
-                        selectedVideo: response.data
+                        selectedVideo: response.data.comments
                     })
                 }
             })
-    }
+    };
+
+    submitHandle = (e) => {
+        e.preventDefault();
+
+        return axios.post(`${api}/${this.props.match.params.id}/comments${key}`, {
+            'name' : e.target.name.value,
+            'comment' : e.target.comment.value
+        })
+            .then(response => {
+                this.setState({
+                    updateComments: response.data.comments
+                })
+                
+            })
+            // this.submitHandle.reset();
+    };
+
 
     render () {
 
@@ -84,6 +102,7 @@ class Main extends React.Component {
             
                             <Form 
                                 comment={this.state.selectedVideo.comments}
+                                submitHandle={this.submitHandle}
                             />
 
                             <Comment 
@@ -103,7 +122,7 @@ class Main extends React.Component {
 
             </React.Fragment>
         )
-    }
-}
+    };
+};
 
 export default Main;

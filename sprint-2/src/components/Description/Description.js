@@ -3,6 +3,7 @@ import './Description.scss';
 import viewIcon from '../../assets/Icons/SVG/Icon-views.svg';
 import likeIcon from '../../assets/Icons/SVG/Icon-likes.svg';
 
+import { updateTime } from '../Comments/Comment';
 
 // VIDEO DESCRIPTION
 
@@ -19,7 +20,7 @@ const Description = (props) => {
                 <div className="description--flexbox">
                 	<div className="description__detail">
                 	    <p className="description__detail-channel">By {channel}</p>
-                	    <p className="description__detail-date">{date}</p>
+                	    <p className="description__detail-date">{updateTime(date)}</p>
                 	</div>
                 
                 	<div className="description__data">

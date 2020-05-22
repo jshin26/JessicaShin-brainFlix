@@ -16,7 +16,7 @@ const Header = () => {
         <header className="header">
 
             <div className="header--inner">
-                <NavLink exact to="/" className="header__logo">
+                <NavLink exact to="/" className="header__logo"> {/* 1af0jruup5gu */}
                     <img  src={logoImage} alt="brainFlix logo"/>
                 </NavLink>
                 <div className="header--flexbox">
