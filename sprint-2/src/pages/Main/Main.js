@@ -29,24 +29,22 @@ class Main extends React.Component {
         updateComments: []
     }
 
-    getfromAPI ( routeId ) {
+    // function for re-using axios
+    getfromAPI ( urlId ) {
         axios
-            .get(api + routeId + key)
-            .then(response => {
-                this.setState({
-                   selectedVideo : response.data
-                })
-            })
-    }
-
-    componentDidMount() {
-        axios
-            .get(api+mainURL+key)
+            .get(api + urlId + key)
             .then(response => {
                 this.setState({
                     selectedVideo: response.data
                 })
             })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    componentDidMount() {
+        this.getfromAPI(mainURL)
         axios
             .get(api+key)
             .then(response => {
@@ -54,46 +52,26 @@ class Main extends React.Component {
                     videoData: response.data
                 })
             })
-    };
+    };     
+
 
     componentDidUpdate(prevProps) {
-        const { url } = this.props.match;
-        const  previous  = prevProps.match.url;
+        const matchUrl = this.props.match.url;
+        const prevUrl = prevProps.match.url;
 
-        if (url !== previous && url !== '/') {
-            axios.get(`${api}/${this.props.match.params.id}${key}`).then(response=>{
-                this.setState({
-                    selectedVideo: response.data
-                })
-            })
-        } else if (url !== previous && url === '/') {
-            axios.get(api+mainURL+key).then(response=>{
-                this.setState({
-                    selectedVideo: response.data
-                })
-            })
+        if (matchUrl !== prevUrl && matchUrl === '/') {
+
+            this.getfromAPI(mainURL)
+
+        } else if (matchUrl !== prevUrl) {
+
+            this.getfromAPI(`/${this.props.match.params.id}`)
+            
         }
-        
-        // if (prevProps.match.params.id !== this.props.match.params.id && prevProps.match.params.id !== '/') {
-        //     axios
-        //         .get(`${api}/${this.props.match.params.id}${key}`)
-        //         .then(response => {
-        //             this.setState({
-        //                 selectedVideo: response.data
-        //             })
-        //         })
-        // } 
-        // else if (prevProps.match.params.id !== this.props.match.params.id && prevProps.match.params.id ==='/'){
-        //     axios
-        //         .get(api+mainURL+key)
-        //         .then(response => {
-        //             this.setState({
-        //                 selectedVideo: response.data
-        //             })
-        //         })
-        // }
     }
+    
 
+    // onSubmit EventHandler
     submitHandle = (e) => {
         e.preventDefault();
 
@@ -113,8 +91,9 @@ class Main extends React.Component {
                     })
                     
                 })
-                // this.submitHandle.reset();
+               
         }
+        e.target.reset()
     };
 
 
