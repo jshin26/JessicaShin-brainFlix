@@ -1,6 +1,8 @@
 import React from 'react';
 import'./Main.scss';
 import axios from 'axios';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+
 
 // import each components
 
@@ -14,7 +16,7 @@ import VideoSide from '../../components/VideoSide/VideoSide';
 // MAIN VIDEO SECTION
 
 const api = 'https://project-2-api.herokuapp.com/videos';
-const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523ddf';
+const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523diw';
 
 const mainURL = '/1af0jruup5gu';
 
@@ -26,9 +28,7 @@ class Main extends React.Component {
         selectedVideo: {
             comments: []
         },
-        // updateComments:{
-        //     comments:[]
-        // }
+        clickCounter: 0
     }
 
     // function for re-using axios
@@ -46,7 +46,7 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
-        this.getfromAPI(mainURL)
+        this.getfromAPI(mainURL);
         axios
             .get(api+key)
             .then(response => {
@@ -54,52 +54,83 @@ class Main extends React.Component {
                     videoData: response.data
                 })
             })
-        // I wanted to use getfromAPI function for 'videoData' setState,
-        // but I couldn't figure out how.
-    };     
+    }
 
+    componentDidUpdate(prevProps) {
+        const matchUrl = this.props.match.url;
+        const prevUrl = prevProps.match.url;
 
-    // componentDidUpdate(prevProps) {
-    //     const matchUrl = this.props.match.url;
-    //     const prevUrl = prevProps.match.url;
+        if (matchUrl !== prevUrl && matchUrl === '/') {
 
-    //     if (matchUrl !== prevUrl && matchUrl === '/') {
+            this.getfromAPI(mainURL)
 
-    //         this.getfromAPI(mainURL)
+        } else if (matchUrl !== prevUrl) {
 
-    //     } else if (matchUrl !== prevUrl) {
-
-    //         this.getfromAPI(`/${this.props.match.params.id}`)
+            this.getfromAPI(`/${this.props.match.params.id}`)
             
-    //     }
-    // }
-    
+        }
+    }
 
-    // onSubmit EventHandler
     submitHandle = (event) => {
         event.preventDefault();
 
-        if (!event.target.name.value || !event.target.comment.value) {
+        let sideUrl = this.props.match.params.id;
 
-            alert ('Please type your name');
-
-        } else {
-            
-            return axios.post(`${api}/${this.props.match.params.id}/comments${key}`, {
-                'name' : event.target.name.value,
-                'comment' : event.target.comment.value
-            })
-                .then(response => {
-                    console.log(response);
-                    this.setState({
-                        
-                        updateComments: response.data.comments
-                    })
-                })
-
+        if (typeof sideUrl === "undefined") {
+            sideUrl = '1af0jruup5gu'
         }
-        // event.target.reset()
-    };
+
+        if (!event.target.comment.value) {
+
+            alert ('Please type comment');
+        
+        } else {
+            axios
+                .post(`${api}/${sideUrl}/comments${key}`, {
+                    "comment" : event.target.comment.value,
+                    "name" : "USER_NAME"
+                })
+                .then(() => {
+                    this.componentDidMount();
+              
+                })
+                event.target.reset();
+                
+        }
+    }
+
+    likesHandle = (event) => {
+        event.preventDefault();
+
+        let sideUrl = this.props.match.params.id;
+
+        if (typeof sideUrl === "undefined") {
+            sideUrl = '1af0jruup5gu'
+        }
+        axios
+            .post(`${api}/${sideUrl}/comments/${this.props.match.params.comments}${key}`)
+            .then(
+                this.setState({
+                    clickCounter: ++this.state.clickCounter
+                })
+            )
+
+        
+    }
+
+    deleteHandle = (event) => {
+        event.preventDefault();
+
+        let sideUrl = this.props.match.params.id;
+
+        if (typeof sideUrl === "undefined") {
+            sideUrl = '1af0jruup5gu'
+        }
+        
+        axios
+            .delete(`${api}/${sideUrl}/comments/:comments_id${key}`)
+            .then(res => console.log(res))
+    }
 
     render () {
 
@@ -120,12 +151,15 @@ class Main extends React.Component {
                             />
             
                             <Form 
-                                {...this.state.selectedVideo}
-                                // submitHandle={this.submitHandle}
+                                comments={this.state.selectedVideo}
+                                submitHandle={this.submitHandle}
                             />
 
                             <Comment 
-                                displayComment={this.state.selectedVideo.comments}
+                                displayComment={this.state.selectedVideo}
+                                likesHandle={this.likesHandle}
+                                deleteHandle={this.deleteHandle}
+                                likes={this.state.clickCounter}
                             />
             
                         </div>

@@ -60,6 +60,8 @@ const CommentComponent = (props) => {
                         <div>
                             <p className="comment__comments">{comment}</p>
                         </div>
+
+
     
                     </div>
     
@@ -69,27 +71,37 @@ const CommentComponent = (props) => {
     )
 }
 
-const Comment = props => {
+const Comment = (props) => {
 
-    let {displayComment} = props;
+    let {displayComment, likesHandle, deleteHandle, likes} = props;
 
     return (
         <div>
 
-            {displayComment.map((content) => {
+            {displayComment.comments.map((content) => {
                 return (
-                    <CommentComponent
-                    key={content.id}
-                    name={content.name}
-                    timestamp={content.timestamp}
-                    comment={content.comment}
-                    />
+                    <React.Fragment>
+                        <CommentComponent
+                        key={content.id}
+                        name={content.name}
+                        timestamp={content.timestamp}
+                        comment={content.comment}
+                        />
+                        <div className="comment__button-box">
+                            <button className="comment__button btn btn--white" onClick={likesHandle}>{likes}</button>
+                            <button className="comment__button btn btn--white" onClick={deleteHandle}>Delete</button>
+                        </div>
+                    </React.Fragment>
                 )
-            })}
-
+            }).reverse()}
+            {/* I could not figure out how to sort the comments by date */}
         </div>  
     )
 
 }
 
 export default Comment;
+
+
+
+

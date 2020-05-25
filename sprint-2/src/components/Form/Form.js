@@ -18,10 +18,9 @@ const Form = (props) => {
                         <img src={userImage} alt="userimage" />
                     </div>
 
-                    <form className="form--right">  {/*  onSubmit={submitHandle} */}
+                    <form className="form--right" onSubmit={submitHandle} method="POST">
                         <label className="form__text" htmlFor="comment">JOIN THE CONVERSATION</label>
                         <div className="form__container">
-                            {/* <textarea className="form__new form__new--bgrgray" name="name" cols="10" placeholder="Write name here"></textarea> */}
                             
                             <textarea className="form__new form__new--bgrgray" name="comment" cols="10" placeholder="Write comment here"></textarea>
                         
