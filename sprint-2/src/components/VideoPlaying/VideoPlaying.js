@@ -44,4 +44,22 @@ const VideoPlaying = (props) => {
 
 }
 
+
+// const VideoPlaying = (props) => {
+
+
+//     return (
+//         <React.Fragment>
+
+//            <VideoPlayingComp
+//                 image={props.image}
+//                 video={props.video}
+//                 duration={props.duration}                    
+//             />
+
+//         </React.Fragment>  
+//     )
+
+// }
+
 export default VideoPlaying;

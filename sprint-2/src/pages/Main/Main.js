@@ -26,7 +26,7 @@ class Main extends React.Component {
         selectedVideo: {
             comments: []
         },
-        updateComments: []
+        updateComments: {comments:[]}
     }
 
     // function for re-using axios
@@ -86,6 +86,7 @@ class Main extends React.Component {
                 'comment' : e.target.comment.value
             })
                 .then(response => {
+                    console.log(response)
                     this.setState({
                         updateComments: response.data.comments
                     })
@@ -105,25 +106,18 @@ class Main extends React.Component {
                 <main className="main">
 
                     <VideoPlaying 
-                        image={this.state.selectedVideo.image}
-                        video={this.state.selectedVideo.video}
-                        duration={this.state.selectedVideo.duration}
+                        {...this.state.selectedVideo}
                     />
 
                     <div className="main--flexbox">
                         
                         <div className="main--left">
                             <Description 
-                                title={this.state.selectedVideo.title}
-                                channel={this.state.selectedVideo.channel}
-                                date={this.state.selectedVideo.timestamp}
-                                views={this.state.selectedVideo.views}
-                                likes={this.state.selectedVideo.likes}
-                                description={this.state.selectedVideo.description}
+                                {...this.state.selectedVideo}
                             />
             
                             <Form 
-                                comments={this.state.selectedVideo.comments}
+                                {...this.state.selectedVideo}
                                 submitHandle={this.submitHandle}
                             />
 
