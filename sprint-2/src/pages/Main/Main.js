@@ -26,7 +26,9 @@ class Main extends React.Component {
         selectedVideo: {
             comments: []
         },
-        updateComments: {comments:[]}
+        // updateComments:{
+        //     comments:[]
+        // }
     }
 
     // function for re-using axios
@@ -52,51 +54,52 @@ class Main extends React.Component {
                     videoData: response.data
                 })
             })
+        // I wanted to use getfromAPI function for 'videoData' setState,
+        // but I couldn't figure out how.
     };     
 
 
-    componentDidUpdate(prevProps) {
-        const matchUrl = this.props.match.url;
-        const prevUrl = prevProps.match.url;
+    // componentDidUpdate(prevProps) {
+    //     const matchUrl = this.props.match.url;
+    //     const prevUrl = prevProps.match.url;
 
-        if (matchUrl !== prevUrl && matchUrl === '/') {
+    //     if (matchUrl !== prevUrl && matchUrl === '/') {
 
-            this.getfromAPI(mainURL)
+    //         this.getfromAPI(mainURL)
 
-        } else if (matchUrl !== prevUrl) {
+    //     } else if (matchUrl !== prevUrl) {
 
-            this.getfromAPI(`/${this.props.match.params.id}`)
+    //         this.getfromAPI(`/${this.props.match.params.id}`)
             
-        }
-    }
+    //     }
+    // }
     
 
     // onSubmit EventHandler
-    submitHandle = (e) => {
-        e.preventDefault();
+    submitHandle = (event) => {
+        event.preventDefault();
 
-        if (!e.target.name.value || !e.target.comment.value) {
+        if (!event.target.name.value || !event.target.comment.value) {
 
             alert ('Please type your name');
 
         } else {
             
             return axios.post(`${api}/${this.props.match.params.id}/comments${key}`, {
-                'name' : e.target.name.value,
-                'comment' : e.target.comment.value
+                'name' : event.target.name.value,
+                'comment' : event.target.comment.value
             })
                 .then(response => {
-                    console.log(response)
+                    console.log(response);
                     this.setState({
+                        
                         updateComments: response.data.comments
                     })
-                    
                 })
-               
-        }
-        e.target.reset()
-    };
 
+        }
+        // event.target.reset()
+    };
 
     render () {
 
@@ -118,7 +121,7 @@ class Main extends React.Component {
             
                             <Form 
                                 {...this.state.selectedVideo}
-                                submitHandle={this.submitHandle}
+                                // submitHandle={this.submitHandle}
                             />
 
                             <Comment 
