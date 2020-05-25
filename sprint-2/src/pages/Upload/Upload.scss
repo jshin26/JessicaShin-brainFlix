@@ -4,3 +4,77 @@
 @import '../../styles/fonts';
 @import '../../styles/mixins';
 @import '../../styles/variable';
+
+
+// UPLOAD
+
+.upload {
+    border-top: 1px solid $mercury;
+    &--inner {
+        width: 90%;
+        margin: 0 auto;
+        @include tablet {
+            width: 94%;
+        }
+    }
+    &__title {
+        margin: 24px 0 32px;
+        @include tablet {
+            @include font (2.25rem, 2.75rem, 'AvenirNext', 700);
+        }
+    }
+    &__video {
+        margin-bottom: 8px;
+        &-label {
+            @include font (0.8rem, 1.5rem, 'AvenirNext', 600);
+            color: $silver;
+        }
+        &-image {
+            width: 100%;
+            // height: 153px;
+            border-radius: 5px;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    &__name,
+    &__description {
+        display: flex;
+        flex-direction: column;
+    }
+    &__label {
+        @include font (0.8rem, 1.5rem, 'AvenirNext', 600);
+        color: $silver;
+        margin-top:24px;
+    }
+    &__input {
+        border: 1px solid $mercury;
+        border-radius: 4px;
+        padding: 14px;
+        background-color: $alabaster;
+        &:focus {
+            border: 2px solid $brainflix-blue;                
+            outline: none;             
+        }
+        &::placeholder {
+            @include font (0.875rem, 1.375rem, 'AvenirNext', 400);
+            color: $black;
+            @include tablet {
+                @include font (0.938rem, 1.563rem, 'AvenirNext', 400); 
+            }
+        }
+        &-description {
+            height: 143px;
+            resize: none;
+        }
+    }
+    &__button {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 32px;
+        button {
+            padding: 14px;
+        }
+    }
+}
