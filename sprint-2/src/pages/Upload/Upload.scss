@@ -15,6 +15,7 @@
         margin: 0 auto;
         @include tablet {
             width: 94%;
+            margin: 48px auto 40px;
         }
     }
     &__title {
@@ -25,8 +26,12 @@
     }
     &__video {
         margin-bottom: 8px;
+        @include tablet {
+            width: 48%;
+            margin-bottom: 16px;
+        }
         &-label {
-            @include font (0.8rem, 1.5rem, 'AvenirNext', 600);
+            @include font (0.875rem, 1.5rem, 'AvenirNext', 600);
             color: $silver;
         }
         &-image {
@@ -37,10 +42,17 @@
             object-position: center;
         }
     }
-    &__name,
+    &__name {
+        display: flex;
+        flex-direction: column;
+    }
     &__description {
         display: flex;
         flex-direction: column;
+        @include tablet {
+            padding-bottom: 40px;
+            border-bottom: 1px solid $mercury;
+        }
     }
     &__label {
         @include font (0.8rem, 1.5rem, 'AvenirNext', 600);
@@ -66,6 +78,9 @@
         &-description {
             height: 143px;
             resize: none;
+            @include tablet {
+                height: 110px;
+            }
         }
     }
     &__button {
@@ -73,8 +88,15 @@
         display: flex;
         flex-direction: column;
         margin-top: 32px;
+        @include tablet {
+            flex-direction: row-reverse;
+            margin: 40px 0 160px;
+        }
         button {
             padding: 14px;
+            @include tablet {
+                width: 160px;
+            }
         }
     }
 }
