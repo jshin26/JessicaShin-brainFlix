@@ -71,6 +71,9 @@ class Main extends React.Component {
         }
     }
 
+    // onSubmit button for posting comments
+    // could not figure out how to change each url for the side videos
+
     submitHandle = (event) => {
         event.preventDefault();
 
@@ -94,10 +97,11 @@ class Main extends React.Component {
                     this.componentDidMount();
               
                 })
-                event.target.reset();
-                
+                event.target.reset();                
         }
     }
+
+    // Could not figure out how to put each commentId in .post/.delete :(
 
     likesHandle = (event) => {
         event.preventDefault();
@@ -113,9 +117,7 @@ class Main extends React.Component {
                 this.setState({
                     clickCounter: ++this.state.clickCounter
                 })
-            )
-
-        
+            )        
     }
 
     deleteHandle = (event) => {
@@ -129,8 +131,8 @@ class Main extends React.Component {
         
         axios
             .delete(`${api}/${sideUrl}/comments/:comments_id${key}`)
-            .then(res => console.log(res))
     }
+
 
     render () {
 

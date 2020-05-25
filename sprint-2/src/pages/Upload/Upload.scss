@@ -15,14 +15,14 @@
         margin: 0 auto;
         @include tablet {
             width: 94%;
-            margin: 48px auto 40px;
+            margin: 3rem auto 2.5rem;
         }
         @include desktop {
             width: 89%;
         }
     }
     &__title {
-        margin: 24px 0 32px;
+        margin: 1.5rem 0 2rem;
         @include tablet {
             @include font (2.25rem, 2.75rem, 'AvenirNext', 700);
         }
@@ -31,7 +31,7 @@
         @include tablet {
             border-top: 1px solid $mercury;
             border-bottom: 1px solid $mercury;
-            padding-top: 40px;
+            padding-top: 2.5rem;
         }
         @include desktop {
             display: flex;
@@ -39,14 +39,14 @@
         }
     }
     &__video {
-        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
         @include tablet {
             width: 48%;
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
         }
         @include desktop {
             width: 32%;
-            margin-right: 24px;
+            margin-right: 1.5rem;
         }
         &-label {
             @include font (0.875rem, 1.5rem, 'AvenirNext', 600);
@@ -58,14 +58,14 @@
             object-fit: cover;
             object-position: center;
             @include desktop {
-                min-height: 187px;
+                min-height: 11.688rem;
             }
         }
     }
     &--right {
         @include desktop {
             width: 68%;
-            min-height: 287px
+            min-height: 17.938rem;
         }
     }
     &__name {
@@ -76,13 +76,13 @@
         display: flex;
         flex-direction: column;
         @include tablet {
-            padding-bottom: 40px;
+            padding-bottom: 2.5rem;
         }
     }
     &__label {
         @include font (0.875rem, 1.5rem, 'AvenirNext', 600);
         color: $silver;
-        margin-top:24px;
+        margin-top:1.5rem;
         @include desktop {
             margin: 0;
         }
@@ -90,10 +90,10 @@
     &__input {
         border: 1px solid $mercury;
         border-radius: 4px;
-        padding: 14px;
+        padding: 0.875rem;
         background-color: $alabaster;
         @include desktop {
-            margin-bottom:24px;
+            margin-bottom:1.5rem;
         }
         &:focus {
             border: 2px solid $brainflix-blue;                
@@ -107,10 +107,10 @@
             }
         }
         &-description {
-            height: 143px;
+            height: 8.938rem;
             resize: none;
             @include tablet {
-                height: 110px;
+                height: 6.875rem;
                 margin-bottom:0;
             }
             @include desktop {
@@ -124,15 +124,15 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        margin-top: 32px;
+        margin-top: 2rem;
         @include tablet {
             flex-direction: row-reverse;
-            margin: 40px 0 160px;
+            margin: 2.5rem 0 10rem;
         }
         button {
-            padding: 14px;
+            padding: 0.875rem;
             @include tablet {
-                width: 160px;
+                width: 10rem;
             }
         }
     }
