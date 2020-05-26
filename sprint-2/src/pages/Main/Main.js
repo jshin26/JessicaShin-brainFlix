@@ -77,7 +77,7 @@ class Main extends React.Component {
     submitHandle = (event) => {
         event.preventDefault();
 
-        let sideUrl = this.props.match.params.id;
+        let sideUrl = this.props.match.params.url;
 
         if (typeof sideUrl === "undefined") {
             sideUrl = '1af0jruup5gu'
