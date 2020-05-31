@@ -24,7 +24,6 @@ class Main extends React.Component {
         selectedVideo: {
             comments: []
         }
-        // clickCounter: 0
     }
 
     // function for re-using axios
@@ -121,7 +120,7 @@ class Main extends React.Component {
                             submitHandle={this.submitHandle}
                         />
 
-                        <Comment 
+                        <Comment
                             displayComment={this.state.selectedVideo}
                         />
         

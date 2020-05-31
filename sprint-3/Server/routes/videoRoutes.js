@@ -12,8 +12,6 @@ router.get('/video/:id', (req, res) => {
         ? videoData.find(video => video.id === req.params.id)
         : videoData;
 
-    // currVideo = currVideo.find(video => video.id === req.params.id);
-
     res.json(currVideo);
 })
 
@@ -22,10 +20,20 @@ router.get('/video/:id/comments', (req, res) => {
         ? videoData.find(video => video.id === req.params.id)
         : videoData;
 
-    // currVideo = currVideo.find(video => video.id === req.params.id);
-
     res.json(currVideo.comments);
 })
+
+// router.get('video/:id/comments/:commentId', (req, res) => {
+    // let currVideo = req.params.id
+    //     ? videoData.find(video => video.id === req.params.id)
+    //     : videoData;
+    
+    // let currComment = req.params.id
+    //     ? videoData.find(comment => comment.id === req.params.id).comments
+    //     : videoData.comments;
+
+    // res.json(currComment.comments)
+// })
 
 router.post('/video/:id/comments', (req, res) => {
     console.log('let me check: ', req.params.id)
@@ -33,7 +41,6 @@ router.post('/video/:id/comments', (req, res) => {
         ? videoData.find(video => video.id === req.params.id)
         : videoData;
 
-    // currVideo = currVideo.find(video => video.id === req.params.id);
     console.log(req.body);
     currVideo.comments.push(req.body);
     res.json(currVideo.comments)
@@ -43,5 +50,7 @@ router.post('/video', (req, res) => {
     videoData.push(req.body);
     res.json(videoData);
 })
+
+router.post('/video/:id/')
 
 module.exports = router;

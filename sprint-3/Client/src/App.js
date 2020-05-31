@@ -12,7 +12,8 @@ function App() {
   return (
     <BrowserRouter>
 
-      <Header />        
+      <Header />
+      
       <Switch>          
         <Route path="/" exact component={Main} />
         <Route path="/upload" exact component={Upload} />

@@ -1,6 +1,8 @@
 import React from 'react';
 import './Comments.scss';
+// import axios from 'axios';
 
+// const api = 'http://localhost:8080/video';
 
 // TImestamp
 
@@ -80,20 +82,18 @@ const Comment = (props) => {
 
     const likesHandle = (event) => {
         event.preventDefault();
-        console.log('likess')
+        console.log('likes');
 
-        // let sideUrl = this.props.match.params.id;
+        // const dynamicVideo= this.props.match.params.id
+        // axios.get(`${api}/`)
 
-        // if (typeof sideUrl === "undefined") {
-        //     sideUrl = '1af0jruup5gu'
+        // if (typeof dynamicVideo === "undefined") {
+        //     dynamicVideo = '1af0jruup5gu'
         // }
         // axios
-        //     .post(`${api}/${sideUrl}/comments/${this.props.match.params.comments}`)
-        //     .then(
-        //         this.setState({
-        //             clickCounter: ++this.state.clickCounter
-        //         })
-        //     )        
+        //     .post(`${api}/${dynamicVideo}/comments/${this.props.match.params.comments}`, {
+        //         "likes": 2
+        //     })
     }
 
     const deleteHandle = (event) => {
@@ -126,7 +126,6 @@ const Comment = (props) => {
                     </React.Fragment>
                 )
             }).reverse()}
-            {/* I could not figure out how to sort the comments by date */}
         </div>  
     )
 
