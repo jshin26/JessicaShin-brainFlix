@@ -1,4 +1,7 @@
-videoData = [
+// const express = require('express');
+// const router = express.Router();
+
+const videoData = [
     {
         "id": "1af0jruup5gu",
         "title": "BMX Rampage: 2018 Highlights",
@@ -315,3 +318,5 @@ videoData = [
         ]
     }
 ]
+
+module.exports = videoData;

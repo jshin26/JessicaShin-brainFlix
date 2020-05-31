@@ -2,7 +2,6 @@ import React from 'react';
 import'./Main.scss';
 import axios from 'axios';
 
-
 // import each components
 
 import VideoPlaying from '../../components/VideoPlaying/VideoPlaying'
@@ -14,14 +13,8 @@ import VideoSide from '../../components/VideoSide/VideoSide';
 
 // MAIN VIDEO SECTION
 
-// const api = 'https://project-2-api.herokuapp.com/videos';
-// const key = '?api_key=ae8e8f77-8ae3-41ea-9efd-04a70d523diw';
-
-// const mainURL = '/1af0jruup5gu';
-
 const api = 'http://localhost:8080/video';
-
-const mainURL = '/1af0jruup5gu';
+const mainURL = '1af0jruup5gu';
 
 
 class Main extends React.Component {
@@ -37,7 +30,7 @@ class Main extends React.Component {
     // function for re-using axios
     getfromAPI ( urlId ) {
         axios
-            .get(api + urlId)
+            .get(api + '/' + urlId)
             .then(response => {
                 this.setState({
                     selectedVideo: response.data
@@ -49,16 +42,7 @@ class Main extends React.Component {
     }
 
     mountFx () {
-        axios
-            .get(api + mainURL)
-            .then(response => {
-                this.setState({
-                    selectedVideo: response.data
-                })
-            })
-            .catch(error => {
-                console.log(error);
-            })
+       this.getfromAPI(mainURL)
         axios
             .get(api)
             .then(response => {
@@ -73,8 +57,6 @@ class Main extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.props.match.url)
-
         const matchUrl = this.props.match.url;
         const prevUrl = prevProps.match.url;
         if (matchUrl !== prevUrl && matchUrl === '/') {
@@ -83,24 +65,20 @@ class Main extends React.Component {
 
         } else if (matchUrl !== prevUrl) {
             
-            this.getfromAPI(`/${this.props.match.params.id}`)
+            this.getfromAPI(`${this.props.match.params.id}`)
             
         }
     }
 
-    // onSubmit button for posting comments
-    // could not figure out how to change each url for the side videos
-
     submitHandle = (event) => {
         event.preventDefault();
 
-        console.log(this.props.match.url)
+        console.log(this.props.match)
+        let dynamicVideo = this.props.match.params.id;
 
-        if (typeof this.props.match.url === "undefined") {
-            this.props.match.url = '1af0jruup5gu'
-        } else if (this.props.match.usrl === "/") {
-            this.props.match.url = '1af0jruup5gu'
-        }
+        if (typeof dynamicVideo === "undefined") {
+            dynamicVideo = '1af0jruup5gu'
+        } 
 
         if (!event.target.comment.value) {
 
@@ -108,96 +86,55 @@ class Main extends React.Component {
         
         } else {
             axios
-                .post(`${api}${this.props.match.url}/comments`, {
+                .post(`${api}/${dynamicVideo}/comments`, {
                     "comment" : event.target.comment.value,
+                    "timestamp" : Date.now(),
                     "name" : "USER_NAME"
                 })
-                .then(() => {
-                    // console.log(res)
-                    this.setState(
-                        this.mountFx()
-                    )
-                
+                .then((res) => {
+                    console.log(res)
+                    this.mountFx()            
                 })
                 event.target.reset();                
         }
     }
 
-    // Could not figure out how to put each commentId in .post/.delete :(
-
-    // likesHandle = (event) => {
-    //     event.preventDefault();
-
-    //     let sideUrl = this.props.match.params.id;
-
-    //     if (typeof sideUrl === "undefined") {
-    //         sideUrl = '1af0jruup5gu'
-    //     }
-    //     axios
-    //         .post(`${api}/${sideUrl}/comments/${this.props.match.params.comments}`)
-    //         .then(
-    //             this.setState({
-    //                 clickCounter: ++this.state.clickCounter
-    //             })
-    //         )        
-    // }
-
-    // deleteHandle = (event) => {
-    //     event.preventDefault();
-
-    //     let sideUrl = this.props.match.params.id;
-
-    //     if (typeof sideUrl === "undefined") {
-    //         sideUrl = '1af0jruup5gu'
-    //     }
-        
-    //     axios
-    //         .delete(`${api}/${sideUrl}/comments/:comments_id`)
-    // }
-
-
     render () {
 
         return (
-            <React.Fragment>
                 
-                <main className="main">
+            <main className="main">
 
-                    <VideoPlaying 
-                        {...this.state.selectedVideo}
-                    />
+                <VideoPlaying 
+                    {...this.state.selectedVideo}
+                />
 
-                    <div className="main--flexbox">
-                        
-                        <div className="main--left">
-                            <Description 
-                                {...this.state.selectedVideo}
-                            />
-            
-                            <Form 
-                                comments={this.state.selectedVideo}
-                                submitHandle={this.submitHandle}
-                            />
-
-                            <Comment 
-                                displayComment={this.state.selectedVideo}
-                                // likesHandle={this.likesHandle}
-                                // deleteHandle={this.deleteHandle}
-                                likes={this.state.clickCounter}
-                            />
-            
-                        </div>
+                <div className="main--flexbox">
+                    
+                    <div className="main--left">
+                        <Description 
+                            {...this.state.selectedVideo}
+                        />
         
-                        <div className="main--right">
-                            <VideoSide 
-                                videoList={this.state.videoData.filter(content => content.id !== this.state.selectedVideo.id)}
-                            /> 
-                        </div>
+                        <Form 
+                            comments={this.state.selectedVideo}
+                            submitHandle={this.submitHandle}
+                        />
+
+                        <Comment 
+                            displayComment={this.state.selectedVideo}
+                        />
+        
                     </div>
+    
+                    <div className="main--right">
+                        <VideoSide 
+                            videoList={this.state.videoData.filter(content => content.id !== this.state.selectedVideo.id)}
+                        /> 
+                    </div>
+                </div>
 
-                </main>
-
-            </React.Fragment>
+            </main>
         )
     };
 };

@@ -38,7 +38,7 @@ export function updateTime (unix) {
 
 const CommentComponent = (props) => {
 
-    let {name, timestamp, comment} = props;
+    let {name, timestamp, comment, likesHandle, deleteHandle} = props;
 
     return (
 
@@ -61,7 +61,10 @@ const CommentComponent = (props) => {
                             <p className="comment__comments">{comment}</p>
                         </div>
 
-
+                        <div className="comment__button-box">
+                            <button className="comment__button btn btn--white" onClick={likesHandle}>0</button>
+                            <button className="comment__button btn btn--white" onClick={deleteHandle}>Delete</button>
+                        </div>
     
                     </div>
     
@@ -75,22 +78,51 @@ const Comment = (props) => {
 
     let {displayComment} = props;
 
+    const likesHandle = (event) => {
+        event.preventDefault();
+        console.log('likess')
+
+        // let sideUrl = this.props.match.params.id;
+
+        // if (typeof sideUrl === "undefined") {
+        //     sideUrl = '1af0jruup5gu'
+        // }
+        // axios
+        //     .post(`${api}/${sideUrl}/comments/${this.props.match.params.comments}`)
+        //     .then(
+        //         this.setState({
+        //             clickCounter: ++this.state.clickCounter
+        //         })
+        //     )        
+    }
+
+    const deleteHandle = (event) => {
+        event.preventDefault();
+        console.log('delete')
+
+        // let sideUrl = this.props.match.params.id;
+
+        // if (typeof sideUrl === "undefined") {
+        //     sideUrl = '1af0jruup5gu'
+        // }
+        
+        // axios
+        //     .delete(`${api}/${sideUrl}/comments/:comments_id`)
+    }
     return (
         <div>
 
             {displayComment.comments.map((content) => {
                 return (
                     <React.Fragment key={content.id}>
-                        <CommentComponent
-                        
+                        <CommentComponent                        
                         name={content.name}
                         timestamp={content.timestamp}
                         comment={content.comment}
+                        likesHandle={likesHandle}
+                        deleteHandle={deleteHandle}
                         />
-                        <div className="comment__button-box">
-                            {/* <button className="comment__button btn btn--white" onClick={likesHandle}>{likes}</button>
-                            <button className="comment__button btn btn--white" onClick={deleteHandle}>Delete</button> */}
-                        </div>
+                        
                     </React.Fragment>
                 )
             }).reverse()}
