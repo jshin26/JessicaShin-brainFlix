@@ -331,7 +331,7 @@ router.get('/video/:id', (req, res) => {
 
     // currVideo = currVideo.find(video => video.id === req.params.id);
 
-    res.send(currVideo);
+    res.json(currVideo);
 })
 
 router.get('/video/:id/comments', (req, res) => {
@@ -345,26 +345,15 @@ router.get('/video/:id/comments', (req, res) => {
 })
 
 router.post('/video/:id/comments', (req, res) => {
+    console.log('let me check: ', req.params.id)
     let currVideo = req.params.id
         ? videoData.find(video => video.id === req.params.id)
         : videoData;
 
     // currVideo = currVideo.find(video => video.id === req.params.id);
-    console.log(req.body.comments);
+    console.log(req.body);
     currVideo.comments.push(req.body);
     res.json(currVideo.comments)
-    // if (req.body.comments) {
-    //     currVideo.comments.push({
-    //         // "name" : req.body.name,
-    //         "comment" : req.body,
-    //         "id" : uuidv4(),
-    //         "likes" : 0,
-    //         "timestamp": Date.now()
-    //     })
-    //     res.status(200).send(currVideo.comments)
-    // } else {
-    //     res.status(400).send("Invalid post body")
-    // }
 })
 
 router.post('/video', (req, res) => {

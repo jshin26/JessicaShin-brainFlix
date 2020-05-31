@@ -48,20 +48,32 @@ class Main extends React.Component {
             })
     }
 
-    componentDidMount() {
-        this.getfromAPI(mainURL);
+    mountFx () {
+        axios
+            .get(api + mainURL)
+            .then(response => {
+                this.setState({
+                    selectedVideo: response.data
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            })
         axios
             .get(api)
             .then(response => {
-                console.log(this.state.selectedVideo)
                 this.setState({
                     videoData: response.data
                 })
             })
     }
 
+    componentDidMount() {
+        this.mountFx();
+    }
+
     componentDidUpdate(prevProps) {
-        console.log(this.props.match)
+        console.log(this.props.match.url)
 
         const matchUrl = this.props.match.url;
         const prevUrl = prevProps.match.url;
@@ -86,7 +98,9 @@ class Main extends React.Component {
 
         if (typeof this.props.match.url === "undefined") {
             this.props.match.url = '1af0jruup5gu'
-        } 
+        } else if (this.props.match.usrl === "/") {
+            this.props.match.url = '1af0jruup5gu'
+        }
 
         if (!event.target.comment.value) {
 
@@ -99,8 +113,11 @@ class Main extends React.Component {
                     "name" : "USER_NAME"
                 })
                 .then(() => {
-                    this.componentDidMount();
-              
+                    // console.log(res)
+                    this.setState(
+                        this.mountFx()
+                    )
+                
                 })
                 event.target.reset();                
         }

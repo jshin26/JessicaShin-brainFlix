@@ -33,9 +33,10 @@
             border-bottom: 1px solid $mercury;
             padding-top: 2.5rem;
         }
-        @include desktop {
-            display: flex;
-            align-items: flex-start;
+        &-left {
+            @include desktop {
+                display: flex;
+            }
         }
     }
     &__video {

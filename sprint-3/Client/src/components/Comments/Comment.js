@@ -80,9 +80,9 @@ const Comment = (props) => {
 
             {displayComment.comments.map((content) => {
                 return (
-                    <React.Fragment>
+                    <React.Fragment key={content.id}>
                         <CommentComponent
-                        key={content.id}
+                        
                         name={content.name}
                         timestamp={content.timestamp}
                         comment={content.comment}
