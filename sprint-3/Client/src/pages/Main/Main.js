@@ -45,6 +45,7 @@ class Main extends React.Component {
         axios
             .get(api)
             .then(response => {
+                console.log(response)
                 this.setState({
                     videoData: response.data
                 })
